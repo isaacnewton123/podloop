@@ -1,8 +1,5 @@
 "use client";
 
-import { HugeiconsIcon } from "@hugeicons/react";
-import { StarIcon } from "@hugeicons/core-free-icons";
-import { useReveal } from "../hooks/useReveal";
 import styles from "./Testimonials.module.css";
 
 const REVIEWS = [
@@ -11,49 +8,56 @@ const REVIEWS = [
     color: "#ec4899",
     name: "Sarah Johnson",
     role: "Host, The Marketing Hour",
-    stars: 5,
     quote:
-      "PodGuest Flow cut my pre-production admin from " +
-      "3 hours to 10 minutes. Guests love the " +
-      "professional booking experience.",
+      "PodGuest Flow cut my pre-production admin " +
+      "from 3 hours to 10 minutes.",
   },
   {
     initials: "MR",
     color: "#8b5cf6",
     name: "Marco Rivera",
     role: "Host, Dev Unfiltered",
-    stars: 5,
     quote:
       "No more chasing guests for headshots or " +
-      "timezone math. Everything arrives in one " +
-      "place, ready to go.",
+      "timezone math. Everything arrives ready.",
   },
   {
     initials: "AL",
     color: "#34d399",
     name: "Aisha Lee",
     role: "Producer, StartupFM",
-    stars: 5,
     quote:
-      "The post-release notification feature alone " +
-      "doubled our episode shares. Guests actually " +
-      "remember to promote the episode.",
+      "Post-release notifications doubled our " +
+      "episode shares overnight.",
+  },
+  {
+    initials: "JC",
+    color: "#f59e0b",
+    name: "Jake Chen",
+    role: "Host, Build in Public",
+    quote:
+      "Guests actually compliment the booking " +
+      "experience. That never happened before.",
+  },
+  {
+    initials: "TP",
+    color: "#3b82f6",
+    name: "Tanya Patel",
+    role: "Producer, HealthCast",
+    quote:
+      "We onboard 5 guests a week now with zero " +
+      "manual email threads.",
+  },
+  {
+    initials: "DR",
+    color: "#ef4444",
+    name: "David Rossi",
+    role: "Host, The Indie Pod",
+    quote:
+      "I went from spreadsheets to fully automated " +
+      "in about 15 minutes.",
   },
 ];
-
-function StarRow({ count }: { count: number }) {
-  return (
-    <div className={styles.stars} aria-label={`${count} stars`}>
-      {Array.from({ length: count }).map((_, i) => (
-        <HugeiconsIcon
-          key={i}
-          icon={StarIcon}
-          size={16}
-        />
-      ))}
-    </div>
-  );
-}
 
 function ReviewCard({
   review,
@@ -62,7 +66,10 @@ function ReviewCard({
 }) {
   return (
     <div className={styles.card}>
-      <div className={styles.top}>
+      <p className={styles.quote}>
+        &ldquo;{review.quote}&rdquo;
+      </p>
+      <div className={styles.bottom}>
         <div
           className={styles.avatar}
           style={{ background: review.color }}
@@ -70,21 +77,35 @@ function ReviewCard({
           {review.initials}
         </div>
         <div className={styles.meta}>
-          <span className={styles.name}>{review.name}</span>
-          <span className={styles.role}>{review.role}</span>
+          <span className={styles.name}>
+            {review.name}
+          </span>
+          <span className={styles.role}>
+            {review.role}
+          </span>
         </div>
       </div>
-      <StarRow count={review.stars} />
-      <p className={styles.quote}>
-        &ldquo;{review.quote}&rdquo;
-      </p>
+    </div>
+  );
+}
+
+function MarqueeTrack() {
+  return (
+    <div className={styles.track}>
+      {REVIEWS.map((r) => (
+        <ReviewCard key={r.name} review={r} />
+      ))}
+      {REVIEWS.map((r) => (
+        <ReviewCard
+          key={`dup-${r.name}`}
+          review={r}
+        />
+      ))}
     </div>
   );
 }
 
 export default function Testimonials() {
-  const ref = useReveal();
-
   return (
     <section className={styles.section} id="testimonials">
       <div className="container">
@@ -94,11 +115,9 @@ export default function Testimonials() {
             Loved by podcasters
           </h2>
         </div>
-        <div ref={ref} className={`reveal ${styles.grid}`}>
-          {REVIEWS.map((r) => (
-            <ReviewCard key={r.name} review={r} />
-          ))}
-        </div>
+      </div>
+      <div className={styles.marquee}>
+        <MarqueeTrack />
       </div>
     </section>
   );

@@ -1,6 +1,21 @@
 .hero {
   padding: var(--space-section) 0;
   background: var(--color-canvas);
+  position: relative;
+  overflow: hidden;
+}
+
+.animLogo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  object-fit: contain;
+  opacity: 0.10;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .grid {
@@ -8,6 +23,8 @@
   grid-template-columns: 7fr 5fr;
   gap: var(--space-xxl);
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 .badge {

@@ -11,8 +11,8 @@ import styles from "./HowItWorks.module.css";
 
 const STEPS = [
   {
-    num: "1",
     icon: Link01Icon,
+    iconClass: styles.iconLink,
     title: "Share Your Link",
     desc:
       "Set up your show profile and scheduling rules " +
@@ -20,8 +20,8 @@ const STEPS = [
       "with every prospective guest.",
   },
   {
-    num: "2",
     icon: UserCheckIcon,
+    iconClass: styles.iconUser,
     title: "Guests Self-Book",
     desc:
       "Guests pick a time in their timezone, upload " +
@@ -29,8 +29,8 @@ const STEPS = [
       "questions — all in one flow.",
   },
   {
-    num: "3",
     icon: FlashIcon,
+    iconClass: styles.iconFlash,
     title: "Automate the Rest",
     desc:
       "Calendar invites, tech-check reminders, and " +
@@ -46,9 +46,8 @@ function StepCard({
 }) {
   return (
     <div className={styles.step}>
-      <div className={styles.stepNumber}>{step.num}</div>
-      <div className={styles.stepIcon}>
-        <HugeiconsIcon icon={step.icon} size={32} />
+      <div className={`${styles.stepIcon} ${step.iconClass}`}>
+        <HugeiconsIcon icon={step.icon} size={28} />
       </div>
       <h3 className={`title-md ${styles.stepTitle}`}>
         {step.title}
@@ -78,15 +77,8 @@ export default function HowItWorks() {
           </p>
         </div>
         <div ref={ref} className={`reveal ${styles.steps}`}>
-          <div className={styles.connector} />
-          <div
-            className={
-              `${styles.connector} ` +
-              `${styles.connectorSecond}`
-            }
-          />
           {STEPS.map((s) => (
-            <StepCard key={s.num} step={s} />
+            <StepCard key={s.title} step={s} />
           ))}
         </div>
       </div>

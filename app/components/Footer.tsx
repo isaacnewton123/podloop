@@ -1,10 +1,10 @@
+import Image from "next/image";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
   NewTwitterIcon,
   LinkedinIcon,
   InstagramIcon,
   YoutubeIcon,
-  Mic01Icon,
 } from "@hugeicons/core-free-icons";
 import styles from "./Footer.module.css";
 
@@ -12,43 +12,39 @@ const COLUMNS = [
   {
     title: "Product",
     links: [
-      { label: "Features", href: "#features" },
-      { label: "Pricing", href: "#pricing" },
-      { label: "Integrations", href: "#" },
-      { label: "Changelog", href: "#" },
+      { label: "Features", href: "/#features" },
+      { label: "Pricing", href: "/#pricing" },
+      { label: "Integrations", href: "/integrations" },
+      { label: "Changelog", href: "/changelog" },
     ],
   },
   {
     title: "Company",
     links: [
-      { label: "About", href: "#" },
-      { label: "Blog", href: "#" },
-      { label: "Careers", href: "#" },
+      { label: "About", href: "/about" },
+      { label: "Blog", href: "/blog" },
+      { label: "Careers", href: "/careers" },
       { label: "Contact", href: "/contact" },
     ],
   },
   {
     title: "Legal",
     links: [
-      { label: "Privacy Policy", href: "#" },
-      { label: "Terms of Service", href: "#" },
-      { label: "Cookie Policy", href: "#" },
+      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Terms of Service", href: "/terms" },
+      { label: "Cookie Policy", href: "/cookies" },
     ],
   },
 ];
 
 const SOCIALS = [
-  { icon: NewTwitterIcon, href: "#", label: "X / Twitter" },
+  { icon: NewTwitterIcon, href: "#", label: "X" },
   { icon: LinkedinIcon, href: "#", label: "LinkedIn" },
   { icon: InstagramIcon, href: "#", label: "Instagram" },
   { icon: YoutubeIcon, href: "#", label: "YouTube" },
 ];
 
-function FooterColumn({
-  col,
-}: {
-  col: (typeof COLUMNS)[number];
-}) {
+function FooterColumn({ col }: { col: (typeof COLUMNS)[number] }) {
   return (
     <div>
       <p className={styles.colTitle}>{col.title}</p>
@@ -85,17 +81,15 @@ function SocialLinks() {
 function FooterBrand() {
   return (
     <div className={styles.brand}>
-      <span className={styles.logo}>
-        <span
-          className={styles.logoIcon}
-          aria-hidden="true"
-        >
-          <HugeiconsIcon icon={Mic01Icon} size={14} />
-        </span>
-      </span>
+      <Image
+        src="/logo-podloop-no-bg.avif"
+        alt="Podloop"
+        width={44}
+        height={44}
+        className={styles.logoImg}
+      />
       <p className={styles.brandDesc}>
-        Automate your podcast guest management.
-        One link, zero admin.
+        Automate your podcast guest management. One link, zero admin.
       </p>
       <SocialLinks />
     </div>
@@ -115,9 +109,7 @@ export default function Footer() {
           ))}
         </div>
         <div className={styles.bottom}>
-          <span>
-            © {year} PodGuest Flow. All rights reserved.
-          </span>
+          <span>© {year} Podloop. All rights reserved.</span>
           <span>Made for podcasters, by podcasters.</span>
         </div>
       </div>

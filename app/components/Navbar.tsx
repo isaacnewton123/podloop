@@ -1,23 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { Mic01Icon } from "@hugeicons/core-free-icons";
+import Image from "next/image";
 import styles from "./Navbar.module.css";
 
 const NAV_ITEMS = [
-  { label: "Features", href: "#features" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Features", href: "/#features" },
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "Pricing", href: "/#pricing" },
 ];
-
-function LogoMark() {
-  return (
-    <span className={styles.logoIcon} aria-hidden="true">
-      <HugeiconsIcon icon={Mic01Icon} size={16} />
-    </span>
-  );
-}
 
 function DesktopLinks() {
   return (
@@ -71,7 +62,13 @@ export default function Navbar() {
       <nav className={styles.nav} id="main-nav">
         <div className={`container ${styles.inner}`}>
           <a href="/" className={styles.logo}>
-            <LogoMark />
+            <Image
+              src="/logo-podloop-no-bg.avif"
+              alt="Podloop"
+              width={44}
+              height={44}
+              className={styles.logoImg}
+            />
           </a>
           <DesktopLinks />
           <div className={styles.actions}>

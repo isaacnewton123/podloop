@@ -19,3 +19,10 @@
   font-size: 16px;
   max-width: 480px;
 }
+
+.animLogo {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  border-radius: var(--rounded-full);
+}
