@@ -1,0 +1,21 @@
+.band {
+  padding: var(--space-xxl) 0;
+  background: var(--color-canvas);
+}
+
+.card {
+  background: var(--color-surface-card);
+  border-radius: var(--rounded-lg);
+  padding: var(--space-xxl);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.subtitle {
+  color: var(--color-muted);
+  font-size: 16px;
+  max-width: 480px;
+}

@@ -1,0 +1,123 @@
+.footer {
+  background: var(--color-surface-dark);
+  color: var(--color-on-dark-soft);
+  padding: 64px 0 32px;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 2fr repeat(3, 1fr);
+  gap: var(--space-xl);
+  margin-bottom: var(--space-xxl);
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-on-dark);
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.logoIcon {
+  width: 28px;
+  height: 28px;
+  background: var(--color-on-dark);
+  color: var(--color-surface-dark);
+  border-radius: var(--rounded-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.brandDesc {
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 280px;
+  color: var(--color-on-dark-soft);
+}
+
+.socials {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-xs);
+}
+
+.socialLink {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--rounded-full);
+  background: var(--color-surface-dark-elevated);
+  color: var(--color-on-dark-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.socialLink:hover {
+  color: var(--color-on-dark);
+  background: var(--color-primary-active);
+}
+
+.colTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-on-dark);
+  margin-bottom: var(--space-md);
+}
+
+.colLinks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.colLink {
+  font-size: 14px;
+  color: var(--color-on-dark-soft);
+  transition: color 0.15s ease;
+}
+
+.colLink:hover {
+  color: var(--color-on-dark);
+}
+
+.bottom {
+  border-top: 1px solid var(--color-surface-dark-elevated);
+  padding-top: var(--space-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--color-muted-soft);
+}
+
+@media (max-width: 768px) {
+  .top {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .brand {
+    grid-column: 1 / -1;
+  }
+
+  .bottom {
+    flex-direction: column;
+    gap: var(--space-sm);
+    text-align: center;
+  }
+}
