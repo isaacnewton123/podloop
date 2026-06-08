@@ -1,13 +1,5 @@
 import type { Metadata } from "next";
-import { HugeiconsIcon } from "@hugeicons/react";
-import {
-  Calendar01Icon,
-  Video01Icon,
-  Mic01Icon,
-  Mail01Icon,
-  MusicNote01Icon,
-  Globe02Icon,
-} from "@hugeicons/core-free-icons";
+import Image from "next/image";
 import styles from "../styles/page-common.module.css";
 
 export const metadata: Metadata = {
@@ -19,60 +11,50 @@ export const metadata: Metadata = {
 
 const INTEGRATIONS = [
   {
-    icon: Calendar01Icon,
+    logo: "/logo-integration/google-calendar.svg",
     bg: "#ede9fe",
-    color: "#7c3aed",
     name: "Google Calendar",
     desc: "Two-way sync to prevent double-booking.",
   },
   {
-    icon: Calendar01Icon,
+    logo: "/logo-integration/outlook-calendar.svg",
     bg: "#dbeafe",
-    color: "#2563eb",
     name: "Outlook Calendar",
     desc: "Full read/write calendar integration.",
   },
   {
-    icon: Video01Icon,
+    logo: "/logo-integration/zoom.svg",
     bg: "#fce7f3",
-    color: "#db2777",
     name: "Zoom",
-    desc:
-      "Auto-embed meeting links in guest invites.",
+    desc: "Auto-embed meeting links in guest invites.",
   },
   {
-    icon: Globe02Icon,
+    logo: "/logo-integration/google-meet.svg",
     bg: "#fef3c7",
-    color: "#d97706",
     name: "Google Meet",
     desc: "Generate and attach Meet links instantly.",
   },
   {
-    icon: Mic01Icon,
+    logo: "/logo-integration/riverside.svg",
     bg: "#d1fae5",
-    color: "#059669",
     name: "Riverside",
     desc: "Direct studio links for remote recording.",
   },
   {
-    icon: MusicNote01Icon,
+    logo: "/logo-integration/spotify.svg",
     bg: "#fce4ec",
-    color: "#e91e63",
     name: "Spotify for Podcasters",
     desc: "Share published episodes back to guests.",
   },
   {
-    icon: Mail01Icon,
+    logo: "/logo-integration/Email-(SMTP).svg",
     bg: "#e0f2fe",
-    color: "#0284c7",
     name: "Email (SMTP)",
-    desc:
-      "Send branded confirmation and reminder emails.",
+    desc: "Send branded confirmation and reminder emails.",
   },
   {
-    icon: Video01Icon,
+    logo: "/logo-integration/squadcast.svg",
     bg: "#f3e8ff",
-    color: "#9333ea",
     name: "SquadCast",
     desc: "Embed SquadCast session links in invites.",
   },
@@ -87,9 +69,9 @@ function IntCard({
     <div className={styles.infoCard}>
       <div
         className={styles.infoCardIcon}
-        style={{ background: item.bg, color: item.color }}
+        style={{ background: item.bg }}
       >
-        <HugeiconsIcon icon={item.icon} size={24} />
+        <Image src={item.logo} alt={item.name} width={28} height={28} />
       </div>
       <h3 className={styles.infoCardTitle}>{item.name}</h3>
       <p className={styles.infoCardDesc}>{item.desc}</p>

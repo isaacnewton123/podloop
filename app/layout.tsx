@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     "One link to let guests self-book, submit assets, " +
     "and get reminders. Save 2-4 hours per episode.",
   appleWebApp: {
-    title: "podloop",
+    title: "PodLoop",
   },
   openGraph: {
     title: "Podloop — Automate Your Podcast Guest Management",

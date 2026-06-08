@@ -1,0 +1,41 @@
+import Image from "next/image";
+import styles from "./LogoTicker.module.css";
+
+const LOGOS = [
+  { src: "/logo-integration/google-calendar.svg", alt: "Google Calendar" },
+  { src: "/logo-integration/outlook-calendar.svg", alt: "Outlook Calendar" },
+  { src: "/logo-integration/zoom.svg", alt: "Zoom" },
+  { src: "/logo-integration/google-meet.svg", alt: "Google Meet" },
+  { src: "/logo-integration/riverside.svg", alt: "Riverside" },
+  { src: "/logo-integration/spotify.svg", alt: "Spotify" },
+  { src: "/logo-integration/Email-(SMTP).svg", alt: "Email" },
+  { src: "/logo-integration/squadcast.svg", alt: "SquadCast" },
+];
+
+export default function LogoTicker() {
+  // Duplicate logos so the marquee animation is seamless
+  const tickerLogos = [...LOGOS, ...LOGOS];
+
+  return (
+    <section className={styles.section} id="integrations-ticker">
+      <div className="container">
+        <p className={styles.tagline}>Integrates with your favorite tools</p>
+        <div className={styles.marquee}>
+          <div className={styles.track}>
+            {tickerLogos.map((logo, i) => (
+              <div key={i} className={styles.logoItem}>
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={180}
+                  height={60}
+                  className={styles.img}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

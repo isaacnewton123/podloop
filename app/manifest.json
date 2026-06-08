@@ -1,6 +1,6 @@
 {
-  "name": "podloop",
-  "short_name": "podloop",
+  "name": "PodLoop",
+  "short_name": "PodLoop",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
