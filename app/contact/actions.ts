@@ -1,7 +1,7 @@
 "use server";
 import nodemailer from "nodemailer";
-import fs from "fs/promises";
-import path from "path";
+import { createClient } from "@supabase/supabase-js";
+import { renderEmail } from "./email-template";
 
 export type ContactState = {
   success: boolean;
@@ -19,15 +19,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-async function getEmailHtml(ticketId: string, date: string) {
-  const filePath = path.join(process.cwd(), "public", "email-template.html");
-  let template = await fs.readFile(filePath, "utf-8");
-  template = template.replace("{{ticket_id}}", ticketId);
-  template = template.replace("{{submitted_date}}", date);
-  return template;
-}
 
-import { createClient } from "@supabase/supabase-js";
 
 export async function submitContact(
   prevState: ContactState,
@@ -59,7 +51,7 @@ export async function submitContact(
 
     if (dbError) throw new Error(dbError.message);
 
-    const html = await getEmailHtml(ticketId, date);
+    const html = renderEmail({ ticketId, date, firstName: name });
 
     await Promise.all([
       transporter.sendMail({
