@@ -19,22 +19,28 @@ const COLUMNS = [
     ],
   },
   {
-    title: "Company",
+    title: "Resources",
     links: [
-      { label: "About", href: "/about" },
+      { label: "Documentation", href: "/docs" },
+      { label: "FAQ", href: "/faq" },
       { label: "Blog", href: "/blog" },
-      { label: "Careers", href: "/careers" },
       { label: "Contact", href: "/contact" },
     ],
   },
   {
-    title: "Legal",
+    title: "Company",
     links: [
-      { label: "Privacy Policy", href: "/privacy" },
-      { label: "Terms of Service", href: "/terms" },
-      { label: "Cookie Policy", href: "/cookies" },
+      { label: "About", href: "/about" },
+      { label: "Careers", href: "/careers" },
     ],
   },
+];
+
+const LEGAL_LINKS = [
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms of Service", href: "/terms" },
+  { label: "Cookie Policy", href: "/cookies" },
+  { label: "Refund Policy", href: "/refund" },
 ];
 
 const SOCIALS = [
@@ -110,6 +116,13 @@ export default function Footer() {
         </div>
         <div className={styles.bottom}>
           <span>© {year} Podloop. All rights reserved.</span>
+          <div className={styles.legalLinks}>
+            {LEGAL_LINKS.map((link) => (
+              <a key={link.label} href={link.href} className={styles.bottomLink}>
+                {link.label}
+              </a>
+            ))}
+          </div>
           <span>Made for podcasters, by podcasters.</span>
         </div>
       </div>

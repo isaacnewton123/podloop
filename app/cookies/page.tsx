@@ -9,39 +9,29 @@ export const metadata: Metadata = {
 function CookiesContent() {
   return (
     <div className={styles.prose}>
-      <h2>What are cookies?</h2>
+      <h2>1. What are Cookies?</h2>
       <p>
-        Cookies are small text files stored on your
-        device when you visit a website. They help us
-        remember your preferences and improve your
-        experience.
+        Cookies are small text files stored on your computer or mobile device when you visit a website. They allow Podloop to recognize your device, remember your preferences, and provide a seamless scheduling experience.
       </p>
 
-      <h2>Essential cookies</h2>
+      <h2>2. Strictly Necessary Cookies</h2>
       <p>
-        Required for the service to function. These
-        cannot be disabled. They handle authentication
-        and session management.
+        These cookies are essential for the Podloop platform to function correctly. They handle user authentication, maintain active sessions in the Podcaster Dashboard, and ensure security when guests submit their headshots and bios. These cannot be disabled.
       </p>
 
-      <h2>Analytics cookies</h2>
+      <h2>3. Functional &amp; Preference Cookies</h2>
       <p>
-        Help us understand how visitors interact with
-        Podloop so we can improve the product. These
-        are anonymous and aggregated.
+        These cookies allow the Guest Portal&apos;s smart timepicker to automatically detect and remember your local timezone, eliminating scheduling confusion. They also remember your language preferences and UI theme choices across sessions.
       </p>
 
-      <h2>Preference cookies</h2>
+      <h2>4. Analytics Cookies</h2>
       <p>
-        Remember your settings such as timezone and
-        language preferences across sessions.
+        We use anonymous, aggregated analytics cookies to understand how Podcasters and Guests interact with our platform. This helps us identify usability issues, optimize page load speeds, and improve the overall guest onboarding flow.
       </p>
 
-      <h2>Managing cookies</h2>
+      <h2>5. Managing Your Cookies</h2>
       <p>
-        You can control cookies through your browser
-        settings. Disabling essential cookies may affect
-        site functionality.
+        You have the right to decide whether to accept or reject non-essential cookies. You can exercise your cookie preferences by adjusting your web browser controls. Please note that if you choose to reject strictly necessary cookies, you may not be able to log into the dashboard or complete the scheduling workflow.
       </p>
     </div>
   );

@@ -89,6 +89,23 @@
   color: var(--color-muted-soft);
 }
 
+.legalLinks {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.bottomLink {
+  color: var(--color-muted-soft);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.bottomLink:hover {
+  color: var(--color-on-dark);
+}
+
 @media (max-width: 768px) {
   .top {
     grid-template-columns: 1fr 1fr;
