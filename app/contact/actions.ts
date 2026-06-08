@@ -10,11 +10,12 @@ export type ContactState = {
 };
 
 const transporter = nodemailer.createTransport({
-  host: "smtp-relay.brevo.com",
-  port: 587,
+  host: "smtp.zoho.com",
+  port: 465,
+  secure: true,
   auth: {
-    user: process.env.BREVO_SMTP_LOGIN,
-    pass: process.env.BREVO_SMTP_PASSWORD,
+    user: process.env.ZOHO_SMTP_LOGIN,
+    pass: process.env.ZOHO_SMTP_PASSWORD,
   },
 });
 
@@ -60,21 +61,25 @@ export async function submitContact(
 
     const html = await getEmailHtml(ticketId, date);
 
-    await transporter.sendMail({
-      from: '"Podloop Support" <support@podloop.xyz>',
-      to: email,
-      subject: `Support Confirmation: #${ticketId}`,
-      html,
-      text: `Thanks for reaching out to the Podloop support team.\nYour ticket ID is #${ticketId}.\nWe will get back to you within 24 hours.\n\n- The Podloop Team`,
-    });
-
-    await transporter.sendMail({
-      from: '"Podloop Support" <support@podloop.xyz>',
-      to: "support@podloop.xyz",
-      replyTo: email,
-      subject: `New Message from ${name}: ${subject}`,
-      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${msg}`,
-    });
+    await Promise.all([
+      transporter.sendMail({
+        from: {
+          name: "PodLoop Support",
+          address: "support@podloop.xyz"
+        },
+        to: email,
+        subject: `Support Confirmation: #${ticketId}`,
+        html,
+        text: `Thanks for reaching out to the Podloop support team.\nYour ticket ID is #${ticketId}.\nWe will get back to you within 24 hours.\n\n- The Podloop Team`,
+      }),
+      transporter.sendMail({
+        from: `"${name} via Contact Form" <support@podloop.xyz>`,
+        to: "support@podloop.xyz",
+        replyTo: email,
+        subject: `New Message from ${name}: ${subject}`,
+        text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${msg}`,
+      })
+    ]);
 
     return { success: true, message: "Message sent! Check your inbox.", error: "" };
   } catch (err: unknown) {
