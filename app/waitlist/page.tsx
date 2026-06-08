@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import styles from "../styles/page-common.module.css";
+import WaitlistForm from "./WaitlistForm";
 
 export const metadata: Metadata = {
   title: "Join the Waitlist — Podloop",
@@ -7,53 +8,6 @@ export const metadata: Metadata = {
     "Get early access to Podloop and automate " +
     "your podcast guest management.",
 };
-
-function WaitlistForm() {
-  return (
-    <form>
-      <div className={styles.formGroup}>
-        <label htmlFor="wl-name" className={styles.formLabel}>
-          Your name
-        </label>
-        <input
-          id="wl-name"
-          type="text"
-          className={styles.formInput}
-          placeholder="Jane Smith"
-        />
-      </div>
-      <div className={styles.formGroup}>
-        <label htmlFor="wl-email" className={styles.formLabel}>
-          Email address
-        </label>
-        <input
-          id="wl-email"
-          type="email"
-          className={styles.formInput}
-          placeholder="jane@podcast.fm"
-          required
-        />
-      </div>
-      <div className={styles.formGroup}>
-        <label htmlFor="wl-show" className={styles.formLabel}>
-          Podcast name (optional)
-        </label>
-        <input
-          id="wl-show"
-          type="text"
-          className={styles.formInput}
-          placeholder="The Creator Lab"
-        />
-      </div>
-      <button
-        type="submit"
-        className={`btn-primary ${styles.formSubmit}`}
-      >
-        Join the Waitlist
-      </button>
-    </form>
-  );
-}
 
 export default function WaitlistPage() {
   return (
