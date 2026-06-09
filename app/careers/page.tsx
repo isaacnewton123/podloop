@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
 import styles from "../styles/page-common.module.css";
+import { constructMetadata } from "../lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = constructMetadata({
   title: "Careers — Podloop",
   description:
     "Join the Podloop team and help us build the " +
     "future of podcast guest management.",
-};
+});
 
 const ROLES = [
   {

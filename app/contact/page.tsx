@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
 import styles from "../styles/page-common.module.css";
 
-export const metadata: Metadata = {
+export const metadata = constructMetadata({
   title: "Contact Us — Podloop",
   description:
     "Get in touch with the Podloop team for support, " +
     "partnerships, or general inquiries.",
-};
+});
 
 import { ContactForm } from "./ContactForm";
+import { constructMetadata } from "../lib/seo";
 
 export default function ContactPage() {
   return (

@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
 import styles from "../styles/page-common.module.css";
 import WaitlistForm from "./WaitlistForm";
+import { constructMetadata } from "../lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = constructMetadata({
   title: "Join the Waitlist — Podloop",
   description:
     "Get early access to Podloop and automate " +
     "your podcast guest management.",
-};
+});
 
 export default function WaitlistPage() {
   return (

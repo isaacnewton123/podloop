@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { constructMetadata, globalEntitySchema } from "./lib/seo";
 import "./globals.css";
 
 const inter = Inter({
@@ -17,36 +20,7 @@ const manrope = Manrope({
   weight: ["700"],
 });
 
-export const metadata: Metadata = {
-  title: "Podloop — Automate Your Podcast Guest Management",
-  description:
-    "One link to let guests self-book, submit assets, " +
-    "and get reminders. Save 2-4 hours per episode.",
-  appleWebApp: {
-    title: "PodLoop",
-  },
-  openGraph: {
-    title: "Podloop — Automate Your Podcast Guest Management",
-    description: "One link to let guests self-book, submit assets, and get reminders. Save 2-4 hours per episode.",
-    url: "https://podloop.xyz",
-    siteName: "Podloop",
-    images: [
-      {
-        url: "/og-image.webp",
-        width: 1200,
-        height: 630,
-        alt: "Podloop — Automate Your Podcast Guest Management",
-      },
-    ],
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Podloop — Automate Your Podcast Guest Management",
-    description: "One link to let guests self-book, submit assets, and get reminders. Save 2-4 hours per episode.",
-    images: ["/og-image.webp"],
-  },
-};
+export const metadata: Metadata = constructMetadata();
 
 export default function RootLayout({
   children,
@@ -62,6 +36,12 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <Analytics />
+        <SpeedInsights />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(globalEntitySchema) }}
+        />
       </body>
     </html>
   );

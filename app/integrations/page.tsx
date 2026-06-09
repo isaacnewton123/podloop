@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import styles from "../styles/page-common.module.css";
+import { constructMetadata } from "../lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = constructMetadata({
   title: "Integrations — Podloop",
   description:
     "Connect Podloop to Google Calendar, Zoom, " +
     "Meet, Riverside, and more.",
-};
+});
 
 const INTEGRATIONS = [
   {

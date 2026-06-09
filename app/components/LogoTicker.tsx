@@ -2,14 +2,14 @@ import Image from "next/image";
 import styles from "./LogoTicker.module.css";
 
 const LOGOS = [
-  { src: "/logo-integration/google-calendar.svg", alt: "Google Calendar" },
-  { src: "/logo-integration/outlook-calendar.svg", alt: "Outlook Calendar" },
-  { src: "/logo-integration/zoom.svg", alt: "Zoom" },
-  { src: "/logo-integration/google-meet.svg", alt: "Google Meet" },
-  { src: "/logo-integration/riverside.svg", alt: "Riverside" },
-  { src: "/logo-integration/spotify.svg", alt: "Spotify" },
-  { src: "/logo-integration/Email-(SMTP).svg", alt: "Email" },
-  { src: "/logo-integration/squadcast.svg", alt: "SquadCast" },
+  { src: "/logo-integration/google-calendar.svg", alt: "Google Calendar Integration for Podcast Scheduling" },
+  { src: "/logo-integration/outlook-calendar.svg", alt: "Outlook Calendar Integration for Podcast Booking" },
+  { src: "/logo-integration/zoom.svg", alt: "Zoom Integration for Remote Podcast Recording" },
+  { src: "/logo-integration/google-meet.svg", alt: "Google Meet Integration for Podcast Interviews" },
+  { src: "/logo-integration/riverside.svg", alt: "Riverside.fm Integration for High Quality Podcast Recording" },
+  { src: "/logo-integration/spotify.svg", alt: "Spotify Podcast Distribution Integration" },
+  { src: "/logo-integration/Email-(SMTP).svg", alt: "SMTP Custom Email Integration for Automated Reminders" },
+  { src: "/logo-integration/squadcast.svg", alt: "SquadCast Integration for Remote Podcasting" },
 ];
 
 export default function LogoTicker() {
@@ -30,6 +30,8 @@ export default function LogoTicker() {
                   width={180}
                   height={60}
                   className={styles.img}
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             ))}

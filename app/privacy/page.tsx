@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
 import styles from "../styles/page-common.module.css";
+import { constructMetadata } from "../lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = constructMetadata({
   title: "Privacy Policy — Podloop",
   description: "How Podloop collects, uses, and protects your data.",
-};
+});
 
 function PrivacyContent() {
   return (

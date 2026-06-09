@@ -89,10 +89,12 @@ function FooterBrand() {
     <div className={styles.brand}>
       <Image
         src="/logo-podloop-no-bg.avif"
-        alt="Podloop"
+        alt="Podloop Podcast Guest Management Software Logo"
         width={44}
         height={44}
         className={styles.logoImg}
+        loading="lazy"
+        decoding="async"
       />
       <p className={styles.brandDesc}>
         Automate your podcast guest management. One link, zero admin.

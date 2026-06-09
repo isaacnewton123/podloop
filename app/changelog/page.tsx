@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
 import styles from "../styles/page-common.module.css";
 import cls from "./changelog.module.css";
+import { constructMetadata } from "../lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = constructMetadata({
   title: "Changelog — Podloop",
   description:
     "See what's new in Podloop. Latest features, " +
     "improvements, and bug fixes.",
-};
+});
 
 const ENTRIES = [
   {
