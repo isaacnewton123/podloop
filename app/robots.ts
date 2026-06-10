@@ -1,18 +1,12 @@
-import { MetadataRoute } from 'next';
+import { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
-      userAgent: '*',
-      allow: '/',
-      disallow: [
-        '/api/',
-        '/_next/',
-        '/dashboard/',
-        '/invite/',
-        '/admin/',
-      ],
+      userAgent: "*",
+      allow: "/",
+      disallow: ["/api/", "/_next/", "/dashboard/", "/invite/", "/admin/"],
     },
-    sitemap: 'https://podloop.xyz/sitemap.xml',
+    sitemap: "https://www.podloop.xyz/sitemap.xml",
   };
 }

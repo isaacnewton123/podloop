@@ -1,8 +1,9 @@
 import { MetadataRoute } from 'next';
 import { getPostSlugs } from './lib/mdx';
+import { SITE_URL } from './lib/seo';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://podloop.xyz";
+  const baseUrl = SITE_URL;
 
   const staticRoutes = [
     '',

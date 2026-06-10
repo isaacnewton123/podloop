@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-export const SITE_URL = "https://podloop.xyz";
+export const SITE_URL = "https://www.podloop.xyz";
 export const SITE_NAME = "Podloop";
 export const SITE_DESCRIPTION = "One link to let guests self-book, submit assets, and get reminders. Automate your podcast guest management and save 2-4 hours per episode.";
 
