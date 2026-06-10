@@ -29,47 +29,48 @@ const ROLES = [
 function RoleCard({ role }: { role: (typeof ROLES)[number] }) {
   return (
     <div className={styles.infoCard}>
-      <h3 className={styles.infoCardTitle}>{role.title}</h3>
-      <p
-        className={styles.infoCardDesc}
-        style={{ fontSize: 13, marginBottom: 8 }}
-      >
-        {role.type}
-      </p>
-      <p className={styles.infoCardDesc}>{role.desc}</p>
+      <h3 className="title-md" style={{ marginBottom: 12 }}>{role.title}</h3>
+      <div style={{ marginBottom: 16 }}>
+        <span className={styles.badgePill} style={{ backgroundColor: "var(--color-badge-emerald)", color: "var(--color-ink)" }}>
+          {role.type}
+        </span>
+      </div>
+      <p className="body-md" style={{ color: "var(--color-muted)", marginBottom: 24 }}>{role.desc}</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScOcgyYQwkNeE4MOHaHqpQL2aaC9GEXTQ9RU8ZG07LbFWx8qA/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" className="btn-secondary" style={{ width: "100%" }}>
+        Apply Now
+      </a>
     </div>
+  );
+}
+
+function CareersHero() {
+  return (
+    <section className={styles.pageHero}>
+      <div className="container">
+        <h1 className={`display-lg ${styles.pageHeroTitle}`}>Careers</h1>
+        <p className={styles.pageHeroSub}>
+          Help us automate podcast production for creators worldwide.
+        </p>
+      </div>
+    </section>
   );
 }
 
 export default function CareersPage() {
   return (
     <>
-      <section className={styles.pageHero}>
-        <div className="container">
-          <h1 className={`display-lg ${styles.pageHeroTitle}`}>
-            Careers
-          </h1>
-          <p className={styles.pageHeroSub}>
-            Help us automate podcast production for
-            creators worldwide.
-          </p>
-        </div>
-      </section>
+      <CareersHero />
       <section className={styles.pageBody}>
         <div className="container">
           <div className={styles.prose}>
             <h2>Open positions</h2>
             <p>
-              We&apos;re a small, remote-first team that
-              moves fast and ships often. If you&apos;re
-              passionate about creator tools, we&apos;d
-              love to hear from you.
+              We&apos;re a small, remote-first team that moves fast and ships often. If you&apos;re
+              passionate about creator tools, we&apos;d love to hear from you.
             </p>
           </div>
-          <div
-            className={styles.cardGrid}
-            style={{ marginTop: 32, maxWidth: 720, marginInline: "auto" }}
-          >
+          
+          <div className={styles.cardGrid} style={{ marginTop: 48 }}>
             {ROLES.map((r) => (
               <RoleCard key={r.title} role={r} />
             ))}
